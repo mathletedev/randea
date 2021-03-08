@@ -3,12 +3,11 @@ import firebase from "firebase/app";
 
 // * Allows us to get the auth from firebase
 interface Props {
-	auth: firebase.auth.Auth;
 	firestore: firebase.firestore.Firestore;
 	user: firebase.User;
 }
 
-export const SubmitIdea: React.FC<Props> = ({ auth, firestore, user }) => {
+export const SubmitIdea: React.FC<Props> = ({ firestore, user }) => {
 	// * States for form management
 	const [formValue, setFormValue] = useState({
 		title: "",

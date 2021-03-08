@@ -4,15 +4,14 @@ import { Data } from "react-firebase-hooks/firestore/dist/firestore/types";
 
 // * Gets the ID and idea document
 interface Props {
-	key: any;
 	idea: Data<firebase.firestore.DocumentData, "", "">;
 }
 
-export const Idea: React.FC<Props> = ({ key, idea }) => {
+export const Idea: React.FC<Props> = ({ idea }) => {
 	return (
-		<div>
-			<h3>{idea.title}</h3>
-			<p>{idea.description}</p>
-		</div>
+		<fieldset>
+			<legend>{idea.title}</legend>
+			<div>{idea.description}</div>
+		</fieldset>
 	);
 };

@@ -1,9 +1,9 @@
 import React from "react";
 import firebase from "firebase/app";
 
-import { SignOut } from "./SignOut";
-import { Ideas } from "./Ideas";
-import { SubmitIdea } from "./SubmitIdea";
+import { SignOut } from "../components/SignOut";
+import { Ideas } from "../components/Ideas";
+import { SubmitIdea } from "../components/SubmitIdea";
 
 // * Allows us to get the auth from firebase
 interface Props {
@@ -17,7 +17,7 @@ export const Home: React.FC<Props> = ({ auth, firestore, user }) => {
 		<div>
 			<div>{<SignOut auth={auth} />}</div>
 			<div>{<Ideas firestore={firestore} user={user} />}</div>
-			<div>{<SubmitIdea auth={auth} firestore={firestore} user={user} />}</div>
+			<div>{<SubmitIdea firestore={firestore} user={user} />}</div>
 		</div>
 	);
 };

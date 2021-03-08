@@ -1,13 +1,14 @@
-import React from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 // * Firebase config
 import firebaseConfig from "./config/firebase-config.json";
 
-import { Home } from "./Home";
-import { Landing } from "./Landing";
+import { Home } from "./pages/Home";
+import { Landing } from "./pages/Landing";
+import { PrivateRoute } from "./PrivateRoute";
 
 // * Initialize the firebase app with the credentials on website
 // ! If possible change authDomain
@@ -23,12 +24,27 @@ export default () => {
 
 	// * Show home page if logged in, else show sign in page
 	return (
-		<div>
-			{user ? (
-				<Home auth={auth} firestore={firestore} user={user} />
-			) : (
-				<Landing auth={auth} />
-			)}
-		</div>
+		<BrowserRouter>
+			<Switch>
+				<PrivateRoute
+					loggedIn={!!user}
+					path="/"
+					exact
+					render={() =>
+						user ? (
+							<Home auth={auth} firestore={firestore} user={user} />
+						) : (
+							<div></div>
+						)
+					}
+				/>
+				<Route
+					path="/login"
+					exact
+					render={() => (user ? <Redirect to="/" /> : <Landing auth={auth} />)}
+				/>
+				<Route path="/" render={() => <div>404 Page Not Found</div>} />
+			</Switch>
+		</BrowserRouter>
 	);
 };
