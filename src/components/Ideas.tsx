@@ -23,7 +23,10 @@ export const Ideas: React.FC<Props> = ({ firestore, user }) => {
 
 	return (
 		<div>
-			{ideas && ideas.map((idea) => <Idea key={idea.id} idea={idea} />)}
+			{ideas &&
+				ideas.map((idea) => (
+					<Idea key={idea.id} firestore={firestore} idea={idea} />
+				))}
 		</div>
 	);
 };
