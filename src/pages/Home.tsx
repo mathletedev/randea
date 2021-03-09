@@ -1,23 +1,22 @@
 import React from "react";
 import firebase from "firebase/app";
+import { useHistory } from "react-router";
 
 import { SignOut } from "../components/SignOut";
-import { Ideas } from "../components/Ideas";
-import { SubmitIdea } from "../components/SubmitIdea";
 
 // * Allows us to get the auth from firebase
 interface Props {
 	auth: firebase.auth.Auth;
-	firestore: firebase.firestore.Firestore;
-	user: firebase.User;
 }
 
-export const Home: React.FC<Props> = ({ auth, firestore, user }) => {
+export const Home: React.FC<Props> = ({ auth }) => {
+	// * Allows us to push to history
+	const history = useHistory();
+
 	return (
 		<div>
 			<div>{<SignOut auth={auth} />}</div>
-			<div>{<Ideas firestore={firestore} user={user} />}</div>
-			<div>{<SubmitIdea firestore={firestore} user={user} />}</div>
+			<button onClick={() => history.push("/ideas")}>💡</button>
 		</div>
 	);
 };

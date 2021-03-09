@@ -10,7 +10,7 @@ interface Props {
 	user: firebase.User;
 }
 
-export const Ideas: React.FC<Props> = ({ firestore, user }) => {
+export const IdeaList: React.FC<Props> = ({ firestore, user }) => {
 	// * Find the ideas collection where the author is the currently logged in user
 	const ideasRef = firestore.collection("ideas");
 	const query = ideasRef
