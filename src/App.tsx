@@ -8,6 +8,8 @@ import firebaseConfig from "./config/firebase-config.json";
 import { Ideas } from "./pages/Ideas";
 import { Home } from "./pages/Home";
 import { Landing } from "./pages/Landing";
+import { Random } from "./pages/Random";
+import { Public } from "./pages/Public";
 import { PrivateRoute } from "./PrivateRoute";
 import { useState } from "react";
 
@@ -31,7 +33,7 @@ export default () => {
 
 	// * Show home page if logged in, else show sign in page
 	return user === undefined ? (
-		<div>Loading...</div>
+		<div></div>
 	) : (
 		<BrowserRouter>
 			<Switch>
@@ -47,6 +49,22 @@ export default () => {
 					exact
 					render={() =>
 						user && <Ideas auth={auth} firestore={firestore} user={user} />
+					}
+				/>
+				<PrivateRoute
+					loggedIn={!!user}
+					path="/random"
+					exact
+					render={() =>
+						user && <Random auth={auth} firestore={firestore} user={user} />
+					}
+				/>
+				<PrivateRoute
+					loggedIn={!!user}
+					path="/public"
+					exact
+					render={() =>
+						user && <Public auth={auth} firestore={firestore} user={user} />
 					}
 				/>
 				<Route

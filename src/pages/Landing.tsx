@@ -1,6 +1,5 @@
 import React from "react";
 import firebase from "firebase/app";
-import { useLocation } from "react-router";
 
 import { SignIn } from "../components/SignIn";
 

@@ -22,10 +22,11 @@ export const SubmitIdea: React.FC<Props> = ({ firestore, user }) => {
 			author: user.uid,
 			createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 			title: formValue.title,
-			description: formValue.description
+			description: formValue.description,
+			public: false
 		});
 
-		// * Rest form
+		// * Reset form
 		setFormValue({
 			title: "",
 			description: ""

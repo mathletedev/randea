@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase/app";
-import { useHistory } from "react-router";
 
+import { GoTo } from "../components/GoTo";
 import { SignOut } from "../components/SignOut";
 
 // * Allows us to get the auth from firebase
@@ -10,13 +10,19 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = ({ auth }) => {
-	// * Allows us to push to history
-	const history = useHistory();
-
 	return (
 		<div>
+			<h1>Randea</h1>
 			<div>{<SignOut auth={auth} />}</div>
-			<button onClick={() => history.push("/ideas")}>💡</button>
+			<div>
+				<GoTo redirectTo="/ideas" name="💡 Ideas" />
+			</div>
+			<div>
+				<GoTo redirectTo="/random" name="🎲 Random" />
+			</div>
+			<div>
+				<GoTo redirectTo="/public" name="📖 Public" />
+			</div>
 		</div>
 	);
 };
