@@ -1,6 +1,5 @@
-import React from "react";
 import firebase from "firebase/app";
-
+import React from "react";
 import { SignIn } from "../components/SignIn";
 
 // * Allows us to get the auth from firebase

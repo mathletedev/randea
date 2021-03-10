@@ -1,17 +1,16 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
 import "firebase/auth";
+import "firebase/firestore";
+import { useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 // * Firebase config
 import firebaseConfig from "./config/firebase-config.json";
-
-import { Ideas } from "./pages/Ideas";
 import { Home } from "./pages/Home";
+import { Ideas } from "./pages/Ideas";
 import { Landing } from "./pages/Landing";
-import { Random } from "./pages/Random";
 import { Public } from "./pages/Public";
+import { Random } from "./pages/Random";
 import { PrivateRoute } from "./PrivateRoute";
-import { useState } from "react";
 
 // * Initialize the firebase app with the credentials on website
 // ! If possible change authDomain

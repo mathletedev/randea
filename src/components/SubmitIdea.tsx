@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import firebase from "firebase/app";
+import React, { useState } from "react";
 
 // * Allows us to get the auth from firebase
 interface Props {

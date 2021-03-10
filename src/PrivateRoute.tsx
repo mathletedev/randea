@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Redirect, Route, RouteProps } from "react-router";
 
 // * User login state

@@ -1,5 +1,5 @@
-import React from "react";
 import firebase from "firebase/app";
+import React from "react";
 import { Data } from "react-firebase-hooks/firestore/dist/firestore/types";
 
 // * Gets the ID and idea document

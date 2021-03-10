@@ -1,7 +1,6 @@
-import React from "react";
 import firebase from "firebase/app";
+import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-
 import { Idea } from "./Idea";
 
 // * Allows us to user Firestore and user

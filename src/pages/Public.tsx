@@ -1,9 +1,8 @@
-import React, { useState } from "react";
 import firebase from "firebase/app";
-
+import React, { useState } from "react";
 import { GoTo } from "../components/GoTo";
-import { SignOut } from "../components/SignOut";
 import { PublicIdea } from "../components/PublicIdea";
+import { SignOut } from "../components/SignOut";
 
 // * Allows us to get the auth from firebase
 interface Props {
