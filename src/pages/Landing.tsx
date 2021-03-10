@@ -9,5 +9,10 @@ interface Props {
 }
 
 export const Landing: React.FC<Props> = ({ auth }) => {
-	return <div>{<SignIn auth={auth} />}</div>;
+	return (
+		<div>
+			<h1>Randea</h1>
+			<div>{<SignIn auth={auth} />}</div>
+		</div>
+	);
 };
